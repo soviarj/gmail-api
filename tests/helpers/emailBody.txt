@@ -1,0 +1,5 @@
+Ahoj,
+
+toto je testovací email odoslaný z Playwright testu cez API.
+
+Prajem pekný deň!
