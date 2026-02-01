@@ -1,7 +1,7 @@
 import { readFile } from 'fs/promises';
 import path from 'path';
 
-const emailRecipient = 'juro86@gmail.com';
+const emailRecipient = 'soviar.juraj@gmail.com';
 
 function encodeEmail(email: string): string {
   return Buffer.from(email)
