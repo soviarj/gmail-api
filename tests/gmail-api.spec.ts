@@ -67,6 +67,24 @@ test.describe('GMAIL API test', () => {
     console.log(await response.json());
 
     expect(response.status()).toBe(200);
+    const sentData = await response.json();
+    const messageId = sentData.id
+
+    const verifyResponse = await request.get(
+      `https://gmail.googleapis.com/gmail/v1/users/me/messages/${messageId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
+
+    expect(verifyResponse.status()).toBe(200);
+
+    const verifyData = await verifyResponse.json();
+    expect(verifyData.labelIds).toContain('SENT');
+
+    console.log('Email verified in SENT');
 
   });
 
